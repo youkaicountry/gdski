@@ -1,5 +1,4 @@
-.import/
-art_src/
-*#*
-*~*
+# Godot 4+ specific ignores
+.godot/
 bin/
+asset_repo/

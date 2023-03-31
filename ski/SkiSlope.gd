@@ -1,16 +1,16 @@
 extends Node2D
 
-export var tile_size := 16.0
-export var tiles_across := 512
-export var tiles_down   := 64
-export var camera_node : NodePath
+@export var tile_size := 16.0
+@export var tiles_across := 512
+@export var tiles_down   := 64
+@export var camera_node : NodePath
 
-export var bottom_gen_buffer := 2
-export var top_degen_buffer := 8
+@export var bottom_gen_buffer := 2
+@export var top_degen_buffer := 8
 
 var next_region := 0
 
-onready var camera = get_node(camera_node) as Camera2D
+@onready var camera = get_node(camera_node) as Camera2D
 
 func _ready():
 	self.spawn_region()
@@ -35,8 +35,7 @@ func _physics_process(delta):
 			child.queue_free()
 
 func spawn_region() -> void:
-	var region = GenerationRegion.new(0, self.tiles_down*self.next_region, 
-									  tiles_across, tiles_down, tile_size, tile_size)
+	var region = GenerationRegion.new(0, self.tiles_down*self.next_region, tiles_across, tiles_down, tile_size, tile_size)
 	for generator in $Generators.get_children():
 		generator.generate(region)
 	region.position = Vector2(0, self.next_region*tiles_down*tile_size)

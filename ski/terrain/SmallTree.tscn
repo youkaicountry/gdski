@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://ski/terrain/SmallTree.png" type="Texture" id=1]
+[ext_resource path="res://ski/terrain/SmallTree.png" type="Texture2D" id=1]
 
-[node name="SmallTree" type="Sprite"]
+[node name="SmallTree" type="Sprite2D"]
 texture = ExtResource( 1 )
 centered = false

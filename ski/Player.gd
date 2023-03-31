@@ -7,27 +7,26 @@ extends Node2D
 
 const DOWN : Vector2 = Vector2(0.0, 1.0)
 
-var d_index   : int setget d_index_set
-var direction : Vector2 setget direction_set
-var drag      : float setget ,drag_get
-var speed     : float setget ,speed_get
+var d_index   : int: set = d_index_set
+var direction : Vector2: set = direction_set
+var drag      : float: get = drag_get
+var speed     : float: get = speed_get
 var force     : float
 var velocity  : Vector2
 
 var braking   : bool
 
-export var free_move      : bool = true
-export var running_drag   : float = 1.48
-export var braking_drag   : float = 4.5
-export var side_redirect  : float = 22.0
-export var mass           : float = 1.0
-export var downhill_force : float = 500.0
+@export var free_move      : bool = true
+@export var running_drag   : float = 1.48
+@export var braking_drag   : float = 4.5
+@export var side_redirect  : float = 22.0
+@export var mass           : float = 1.0
+@export var downhill_force : float = 500.0
 
 const SPRITE_LOOKUP := [[3, true], [2, true], [1, true], [0, false], 
 						[1, false], [2, false], [3, false]]
 						
-const DIRECTION_LOOKUP := [Vector2(-1, 0), Vector2(-.867, .5), Vector2(-.5, .867), Vector2(0.0, 1.0),
-						   Vector2(.5, .867), Vector2(.867, .5), Vector2(1, 0)]
+const DIRECTION_LOOKUP := [Vector2(-1, 0), Vector2(-.867, .5), Vector2(-.5, .867), Vector2(0.0, 1.0), Vector2(.5, .867), Vector2(.867, .5), Vector2(1, 0)]
 
 func _ready() -> void:
 	self.direction = Vector2(1.0, 0.0)
@@ -90,8 +89,8 @@ func d_index_set(value:int) -> void:
 
 func calc_sprite() -> void:
 	var s = SPRITE_LOOKUP[self.d_index]
-	$AnimatedSprite.frame = s[0]
-	$AnimatedSprite.flip_h = s[1]
+	$AnimatedSprite2D.frame = s[0]
+	$AnimatedSprite2D.flip_h = s[1]
 
 func drag_get() -> float:
 	if self.braking: return self.braking_drag

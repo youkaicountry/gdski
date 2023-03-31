@@ -41,7 +41,7 @@ func add_object(obj:PackedScene, x:int, y:int, w:int, h:int) -> bool:
 	# TODO: Check the given spaces for clearance
 	if self.is_region_blocked(x, y, w, h): return false
 	self.block_region(x, y, w, h)
-	var node = obj.instance() as Node2D
+	var node = obj.instantiate() as Node2D
 	node.position = Vector2((x-self.origin_x)*self.tile_width, (y-self.origin_y)*self.tile_height)
 	self.add_child(node)
 	return true

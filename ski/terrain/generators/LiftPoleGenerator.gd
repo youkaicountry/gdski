@@ -2,8 +2,8 @@ extends Node2D
 
 var pole_scene := load("res://ski/terrain/LiftPole.tscn")
 
-export var spacing := 48
-export var x_pos := 256
+@export var spacing := 48
+@export var x_pos := 256
 
 var overflow := 24
 
