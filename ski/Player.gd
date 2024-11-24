@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 # Directions
 # 0 - * - 6
@@ -12,7 +12,6 @@ var direction : Vector2: set = direction_set
 var drag      : float: get = drag_get
 var speed     : float: get = speed_get
 var force     : float
-var velocity  : Vector2
 
 var braking   : bool
 
@@ -26,7 +25,8 @@ var braking   : bool
 const SPRITE_LOOKUP := [[3, true], [2, true], [1, true], [0, false], 
 						[1, false], [2, false], [3, false]]
 						
-const DIRECTION_LOOKUP := [Vector2(-1, 0), Vector2(-.867, .5), Vector2(-.5, .867), Vector2(0.0, 1.0), Vector2(.5, .867), Vector2(.867, .5), Vector2(1, 0)]
+const DIRECTION_LOOKUP := [Vector2(-1, 0), Vector2(-.867, .5), Vector2(-.5, .867),
+							Vector2(0.0, 1.0), Vector2(.5, .867), Vector2(.867, .5), Vector2(1, 0)]
 
 func _ready() -> void:
 	self.direction = Vector2(1.0, 0.0)
@@ -36,7 +36,7 @@ func _ready() -> void:
 func _physics_process(delta:float) -> void:
 	var accel := self.force / self.mass
 	self.velocity = self.velocity + ((self.direction*accel) - (self.drag*self.velocity)) * delta
-	self.translate(self.velocity * delta)
+	self.move_and_slide()
 	
 	# Side friction
 	var vn := self.velocity.normalized().dot(direction)

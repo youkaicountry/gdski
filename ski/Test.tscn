@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://ccxfb6ps8lq76"]
 
-[ext_resource type="PackedScene" path="res://ski/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://clyxtnkeh4ffc" path="res://ski/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://ski/SkiSlope.gd" id="2"]
 [ext_resource type="Script" path="res://ski/terrain/generators/LiftPoleGenerator.gd" id="3"]
 [ext_resource type="Script" path="res://ski/terrain/generators/AreaGenerator.gd" id="4"]
