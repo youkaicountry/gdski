@@ -1,9 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene format=3 uid="uid://8jttlskjnx37"]
 
-[ext_resource path="res://ski/terrain/LiftPole.png" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://dveudtw5lq82q" path="res://ski/terrain/LiftPole.png" id="1"]
 
-[node name="LiftPole" type="Node2D"]
+[node name="LiftPole" type="Node2D" unique_id=1958200794]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource( 1 )
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2049925510]
+position = Vector2(-12, -63)
+texture = ExtResource("1")
 centered = false

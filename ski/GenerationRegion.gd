@@ -17,7 +17,7 @@ func _init(x:int, y:int, w:int, h:int, tile_width:float, tile_height:float) -> v
 	self.tile_width = tile_width
 	self.tile_height = tile_height
 	self.blocked.resize(w*h)
-	pass
+	self.y_sort_enabled = true
 
 func sprinkle_objects(obj:PackedScene, density:float, ow:int, oh:int) -> void:
 	self.sprinkle_objects_area(obj, density, self.origin_x, self.origin_y, self.width, self.height, ow, oh)

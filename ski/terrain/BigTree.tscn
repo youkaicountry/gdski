@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene format=3 uid="uid://dib45f5xlvupp"]
 
-[ext_resource path="res://ski/terrain/BigTree.png" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://d11ueo3n3d0rh" path="res://ski/terrain/BigTree.png" id="1"]
 
-[node name="BigTree" type="Sprite2D"]
-texture = ExtResource( 1 )
+[node name="BigTree" type="Node2D" unique_id=757648581]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1580405222]
+position = Vector2(-18, -66)
+texture = ExtResource("1")
 centered = false

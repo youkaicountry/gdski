@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://clyxtnkeh4ffc"]
+[gd_scene format=3 uid="uid://clyxtnkeh4ffc"]
 
-[ext_resource type="Script" path="res://ski/Player.gd" id="1"]
+[ext_resource type="Script" uid="uid://csu8uijunh1cy" path="res://ski/Player.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://hk8dkxseaf0d" path="res://ski/player/MoveShallow.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://crsu70vjvxnou" path="res://ski/player/MoveSide.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://cl8e4glx0efvt" path="res://ski/player/MoveWide.png" id="4"]
@@ -27,12 +27,15 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gm5bg"]
+radius = 8.062258
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=402415962]
 script = ExtResource("1")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=961427207]
+position = Vector2(0, -17)
 sprite_frames = SubResource("1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1793915003]
+position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_gm5bg")

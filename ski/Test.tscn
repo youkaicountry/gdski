@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" path="res://ski/terrain/Stump.tscn" id="12"]
 
 [node name="Test" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1")]
 position = Vector2(4096, 67.446)
@@ -21,11 +22,13 @@ position = Vector2(4096, 67.446)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="SkiSlope" type="Node2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("2")
 tiles_down = 16
 camera_node = NodePath("../Player/Camera2D")
 
 [node name="Regions" type="Node2D" parent="SkiSlope"]
+y_sort_enabled = true
 
 [node name="Generators" type="Node2D" parent="SkiSlope"]
 
