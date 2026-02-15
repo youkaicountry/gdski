@@ -5,6 +5,6 @@
 [node name="BigTree" type="Node2D" unique_id=757648581]
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1580405222]
-position = Vector2(-18, -66)
+position = Vector2(-18, -63)
 texture = ExtResource("1")
 centered = false

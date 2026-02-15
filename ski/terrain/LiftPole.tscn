@@ -5,6 +5,6 @@
 [node name="LiftPole" type="Node2D" unique_id=1958200794]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2049925510]
-position = Vector2(-12, -63)
+position = Vector2(-12, -60)
 texture = ExtResource("1")
 centered = false

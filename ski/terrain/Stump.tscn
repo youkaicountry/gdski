@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene format=3 uid="uid://ck22w8r8eoblb"]
 
-[ext_resource path="res://ski/terrain/Stump.png" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://cjobxr4qvfwbc" path="res://ski/terrain/Stump.png" id="1"]
 
-[node name="Stump" type="Sprite2D"]
-texture = ExtResource( 1 )
+[node name="Stump" type="Node2D" unique_id=689581316]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1657111413]
+position = Vector2(-8, -11)
+texture = ExtResource("1")
 centered = false

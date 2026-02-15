@@ -5,6 +5,6 @@
 [node name="SmallTree" type="Node2D" unique_id=561011863]
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=2064286259]
-position = Vector2(-17, -32)
+position = Vector2(-17, -30)
 texture = ExtResource("1")
 centered = false

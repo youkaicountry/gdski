@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene format=3 uid="uid://barhjtboub4c0"]
 
-[ext_resource path="res://ski/terrain/SmallBump.png" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://bpy8odynlpi7t" path="res://ski/terrain/SmallBump.png" id="1"]
 
-[node name="SmallBump" type="Sprite2D"]
-texture = ExtResource( 1 )
+[node name="SmallBump" type="Node2D" unique_id=178917127]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=93190604]
+position = Vector2(-8, -6)
+texture = ExtResource("1")
 centered = false

@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene format=3 uid="uid://1ccxnn0vijkx"]
 
-[ext_resource path="res://ski/terrain/Rock.png" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://bm8m17o4lrv1c" path="res://ski/terrain/Rock.png" id="1"]
 
-[node name="Rock" type="Sprite2D"]
-texture = ExtResource( 1 )
+[node name="Rock" type="Node2D" unique_id=481865184]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1903600394]
+position = Vector2(-15, -10)
+texture = ExtResource("1")
 centered = false
