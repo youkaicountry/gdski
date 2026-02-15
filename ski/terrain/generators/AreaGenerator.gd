@@ -7,10 +7,31 @@ extends Node2D
 @export var start_x        : int = 0
 @export var generate_width : int = -1
 
-func _ready():
-	pass
+var config: GeneratorConfig
 
-func generate(region:GenerationRegion):
-	if generate_width < 0: generate_width = region.width - start_x
-	region.sprinkle_objects_area(spawn_scene, density1k/1000.0, start_x, region.origin_y, generate_width, region.height, object_width, object_height)
-	pass
+func generate(region: GenerationRegion):
+	var scene: PackedScene
+	var dens: float
+	var ow: int
+	var oh: int
+	var sx: int
+	var gw: int
+
+	if config:
+		scene = config.spawn_scene
+		dens = config.get_density_at(region.origin_y)
+		ow = config.object_width
+		oh = config.object_height
+		sx = config.start_x
+		gw = config.generate_width
+	else:
+		scene = spawn_scene
+		dens = density1k / 1000.0
+		ow = object_width
+		oh = object_height
+		sx = start_x
+		gw = generate_width
+
+	if gw < 0:
+		gw = region.width - sx
+	region.sprinkle_objects_area(scene, dens, sx, region.origin_y, gw, region.height, ow, oh)

@@ -4,6 +4,7 @@ extends Node2D
 @export var tiles_across := 512
 @export var tiles_down   := 64
 @export var camera_node : NodePath
+@export var world_type : WorldType
 
 @export var bottom_gen_buffer := 2
 @export var top_degen_buffer := 8
@@ -13,22 +14,33 @@ var next_region := 0
 @onready var camera = get_node(camera_node) as Camera2D
 
 func _ready():
+	if not world_type:
+		world_type = WorldTypes.free_ski()
+	_setup_generators()
 	self.spawn_region()
-	pass
+
+func _setup_generators():
+	for child in $Generators.get_children():
+		child.queue_free()
+	for gen_config in world_type.generators:
+		var node := Node2D.new()
+		node.set_script(gen_config.generator_script)
+		node.config = gen_config
+		$Generators.add_child(node)
 
 func _physics_process(delta):
 	var cp = self.camera.global_position as Vector2
 	var vps := (get_viewport_rect().size * self.camera.zoom) as Vector2
 	var vpsx := vps.x / 2.0
 	var vpsy := vps.y / 2.0
-	
+
 	var screen := Rect2(cp.x - vpsx, cp.y - vpsy, vps.x, vps.y)
-	
+
 	# Check if generation is needed
 	var bottom := screen.position.y + screen.size.y + (bottom_gen_buffer*tile_size)
 	while bottom > (self.next_region * self.tiles_down * tile_size):
 		self.spawn_region()
-	
+
 	var top := screen.position.y - (top_degen_buffer*tile_size)
 	for child in $Regions.get_children():
 		if (child.global_position.y + (tiles_down*tile_size)) < top:
@@ -41,4 +53,3 @@ func spawn_region() -> void:
 	region.position = Vector2(0, self.next_region*tiles_down*tile_size)
 	$Regions.add_child(region)
 	self.next_region += 1
-	pass

@@ -1,17 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://ccxfb6ps8lq76"]
+[gd_scene load_steps=3 format=3 uid="uid://ccxfb6ps8lq76"]
 
 [ext_resource type="PackedScene" uid="uid://clyxtnkeh4ffc" path="res://ski/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://ski/SkiSlope.gd" id="2"]
-[ext_resource type="Script" path="res://ski/terrain/generators/LiftPoleGenerator.gd" id="3"]
-[ext_resource type="Script" path="res://ski/terrain/generators/AreaGenerator.gd" id="4"]
-[ext_resource type="PackedScene" path="res://ski/terrain/SmallTree.tscn" id="5"]
-[ext_resource type="PackedScene" path="res://ski/terrain/BigTree.tscn" id="6"]
-[ext_resource type="PackedScene" path="res://ski/terrain/DeadTree.tscn" id="7"]
-[ext_resource type="PackedScene" path="res://ski/terrain/SmallBump.tscn" id="8"]
-[ext_resource type="PackedScene" path="res://ski/terrain/BigBump.tscn" id="9"]
-[ext_resource type="PackedScene" path="res://ski/terrain/Rough.tscn" id="10"]
-[ext_resource type="PackedScene" path="res://ski/terrain/Rock.tscn" id="11"]
-[ext_resource type="PackedScene" path="res://ski/terrain/Stump.tscn" id="12"]
 
 [node name="Test" type="Node2D"]
 y_sort_enabled = true
@@ -31,69 +21,3 @@ camera_node = NodePath("../Player/Camera2D")
 y_sort_enabled = true
 
 [node name="Generators" type="Node2D" parent="SkiSlope"]
-
-[node name="LiftPoleGenerator" type="Node2D" parent="SkiSlope/Generators"]
-script = ExtResource("3")
-
-[node name="BigTreeGenerator" type="Node2D" parent="SkiSlope/Generators"]
-script = ExtResource("4")
-spawn_scene = ExtResource("6")
-density1k = 0.197
-object_width = 4
-object_height = 8
-
-[node name="RoughGenerator" type="Node2D" parent="SkiSlope/Generators"]
-position = Vector2(8.97974, 0)
-script = ExtResource("4")
-spawn_scene = ExtResource("10")
-density1k = 0.218
-object_width = 5
-object_height = 3
-
-[node name="SmallTreeGenerator" type="Node2D" parent="SkiSlope/Generators"]
-position = Vector2(8.97974, 0)
-script = ExtResource("4")
-spawn_scene = ExtResource("5")
-density1k = 1.58
-object_width = 3
-object_height = 3
-
-[node name="DeadTreeGenerator" type="Node2D" parent="SkiSlope/Generators"]
-position = Vector2(8.97974, 0)
-script = ExtResource("4")
-spawn_scene = ExtResource("7")
-density1k = 0.218
-object_width = 3
-object_height = 3
-
-[node name="BigBumpGenerator" type="Node2D" parent="SkiSlope/Generators"]
-position = Vector2(8.97974, 0)
-script = ExtResource("4")
-spawn_scene = ExtResource("9")
-density1k = 0.14
-object_width = 3
-object_height = 2
-
-[node name="SmallBumpGenerator" type="Node2D" parent="SkiSlope/Generators"]
-position = Vector2(8.97974, 0)
-script = ExtResource("4")
-spawn_scene = ExtResource("8")
-density1k = 0.492
-object_width = 2
-object_height = 2
-
-[node name="RockGenerator" type="Node2D" parent="SkiSlope/Generators"]
-position = Vector2(8.97974, 0)
-script = ExtResource("4")
-spawn_scene = ExtResource("11")
-density1k = 0.452
-object_width = 3
-object_height = 2
-
-[node name="StumpGenerator" type="Node2D" parent="SkiSlope/Generators"]
-position = Vector2(8.97974, 0)
-script = ExtResource("4")
-spawn_scene = ExtResource("12")
-density1k = 0.197
-object_width = 2
-object_height = 2

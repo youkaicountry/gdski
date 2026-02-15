@@ -25,17 +25,23 @@ func sprinkle_objects(obj:PackedScene, density:float, ow:int, oh:int) -> void:
 # x/y + rw/rh is the region in which to place the objects
 # ow, oh is the object size
 func sprinkle_objects_area(obj:PackedScene, density:float, x:int, y:int, rw:int, rh:int, ow:int, oh:int) -> void:
-	var n = int((rw*rh) * density)
-	#print(n)
+	var raw := (rw*rh) * density
+	var n := int(raw)
+	if randf() < (raw - n):
+		n += 1
+	var max_attempts := 50
 	for i in range(n):
 		var placed := false
-		while not placed:
+		var attempts := 0
+		while not placed and attempts < max_attempts:
 			var eff_w := rw - (ow-1)
 			var eff_h := rh - (oh-1)
+			if eff_w <= 0 or eff_h <= 0:
+				break
 			var px := x+(randi()%eff_w)
 			var py := y+(randi()%eff_h)
-			#print(eff_w, " ", eff_h)
 			placed = self.add_object(obj, px, py, ow, oh)
+			attempts += 1
 
 func add_object(obj:PackedScene, x:int, y:int, w:int, h:int) -> bool:
 	# TODO: Check the given spaces for clearance
